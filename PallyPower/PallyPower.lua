@@ -2903,8 +2903,7 @@ function PallyPower:AutoAssignBlessings()
 	PallyPower:SelectBuffsByClass(pallycount, 7, pt[7]) 	-- mage
 	PallyPower:SelectBuffsByClass(pallycount, 8, pt[8]) 	-- lock
 	PallyPower:SelectBuffsByClass(pallycount, 9, pt[9]) 	-- shaman
-	PallyPower:SelectBuffsByClass(pallycount, 10, pt[10]) 	-- dk
-	PallyPower:SelectBuffsByClass(pallycount, 11, pt[11]) 	-- pets
+	PallyPower:SelectBuffsByClass(pallycount, 10, pt[10]) 	-- pets
 end
 
 function PallyPower:SelectBuffsByClass(pallycount, class, prioritylist)

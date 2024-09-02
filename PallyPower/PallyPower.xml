@@ -1063,7 +1063,7 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
         </Texture>
         <Texture name="$parentLine1" file="Interface\Tooltips\UI-Tooltip-Background" hidden="false">
         <Size>
-          <AbsDimension x="1150" y="2" /> 
+          <AbsDimension x="1064" y="2" /> 
         </Size>
         <Anchors>
           <Anchor point="TOPLEFT">
@@ -1199,18 +1199,6 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
           </Size>
           <Anchors>
             <Anchor point="TOPLEFT" relativeTo="$parentLine11">
-              <Offset>
-                <AbsDimension x="86" y="0" />
-              </Offset>
-            </Anchor>
-          </Anchors>
-        </Texture>
-        <Texture name="$parentLine13" file="Interface\Tooltips\UI-Tooltip-Background" hidden="false">
-         <Size>
-            <AbsDimension x="2" y="78" />
-         </Size>
-          <Anchors>
-            <Anchor point="TOPLEFT" relativeTo="$parentLine12">
               <Offset>
                 <AbsDimension x="86" y="0" />
               </Offset>
@@ -1391,15 +1379,6 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 			  </Anchor>
 		  </Anchors>
 	  </Button>
-	  <Button name="$parentClass11" inherits="BuffGridButtonTemplate">
-		  <Anchors>
-			  <Anchor point="TOPLEFT" relativeTo="$parentClass10" relativePoint="TOPRIGHT">
-				  <Offset>
-					  <AbsDimension x="2" y="0" /> 
-				  </Offset>
-			  </Anchor>
-		  </Anchors>
-	  </Button>
 
   </Frames>
   </Frame>
@@ -1408,7 +1387,7 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 
   <Frame name="PallyPowerConfigFrame" hidden="true" toplevel="true" frameStrata="HIGH" enableMouse="true" movable="true" parent="UIParent">
 	  <Size>
-		  <AbsDimension x="1170" y="960" /> 
+		  <AbsDimension x="1084" y="960" /> 
 	  </Size>
     <Anchors>
       <Anchor point="TOPLEFT" relativeTo="UIParent" relativePoint="BOTTOMLEFT">
@@ -1663,15 +1642,6 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 		  <Frame name="$parentClassGroup10" inherits="ClassGroupTemplate">
 			  <Anchors>
 				  <Anchor point="TOPLEFT" relativeTo="$parentClassGroup9" relativePoint="TOPRIGHT">
-					  <Offset>
-						  <AbsDimension x="2" y="0" /> 
-					  </Offset>
-				  </Anchor>
-			  </Anchors>
-		  </Frame>
-		  <Frame name="$parentClassGroup11" inherits="ClassGroupTemplate">
-			  <Anchors>
-				  <Anchor point="TOPLEFT" relativeTo="$parentClassGroup10" relativePoint="TOPRIGHT">
 					  <Offset>
 						  <AbsDimension x="2" y="0" /> 
 					  </Offset>

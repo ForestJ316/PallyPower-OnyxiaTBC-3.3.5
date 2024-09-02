@@ -3,7 +3,7 @@ local L = AceLibrary("AceLocale-2.2"):new("PallyPower");
 
 PallyPower.commPrefix = "PLPWR";
 
-PALLYPOWER_MAXCLASSES = 11;
+PALLYPOWER_MAXCLASSES = 10;
 PALLYPOWER_MAXPERCLASS = 8;
 PALLYPOWER_NORMALBLESSINGDURATION = 10*60;
 PALLYPOWER_GREATERBLESSINGDURATION = 30*60;
@@ -28,7 +28,7 @@ PALLYPOWER_DEFAULT_VALUES = {
 	},
 	display = {
 		-- buttons
-		rows = 11,
+		rows = 10,
 		columns = 1,
 		gapping = -1,
 		buttonWidth = 100,
@@ -93,8 +93,7 @@ PallyPower.ClassID = {
 	[7] = "MAGE",
 	[8] = "WARLOCK",
 	[9] = "SHAMAN",
-	[10] = "DEATHKNIGHT",
-	[11] = "PET",
+	[10] = "PET",
 };
 	
 PallyPower.ClassToID = {
@@ -107,8 +106,7 @@ PallyPower.ClassToID = {
 	["MAGE"] 		= 7,
 	["WARLOCK"]		= 8,
 	["SHAMAN"]		= 9,
-	["DEATHKNIGHT"]	= 10,
-	["PET"]			= 11,
+	["PET"]			= 10,
 };	
 
 PallyPower.ClassIcons = {
@@ -121,8 +119,7 @@ PallyPower.ClassIcons = {
 	[7] = "Interface\\AddOns\\PallyPower\\Icons\\Mage",
 	[8] = "Interface\\AddOns\\PallyPower\\Icons\\Warlock",
 	[9] = "Interface\\AddOns\\PallyPower\\Icons\\Shaman",
-	[10] = "Interface\\AddOns\\PallyPower\\Icons\\DeathKnight",
-	[11] = "Interface\\AddOns\\PallyPower\\Icons\\Pet",
+	[10] = "Interface\\AddOns\\PallyPower\\Icons\\Pet",
 };
 
 PallyPower.BlessingIcons = {
@@ -246,7 +243,6 @@ PallyPower.Templates={
 		[8]=  {4},
 		[9]=  {4},
 		[10]= {3},
-		[11]= {3},
 	},
 	[2] = {
 		[1]=  {4, 3},
@@ -259,7 +255,6 @@ PallyPower.Templates={
 		[8]=  {4, 3},
 		[9]=  {1, 3},
 		[10]= {2, 3},
-		[11]= {2, 3},
 	},
 	[3]= {
 		[1]=  {4, 2, 3},
@@ -271,8 +266,7 @@ PallyPower.Templates={
 		[7]=  {1, 4, 3},
 		[8]=  {1, 4, 3},
 		[9]=  {2, 4, 3},
-		[10]= {2, 4, 3},
-		[11]= {2, 1, 3},
+		[10]= {2, 1, 3},
 	},
 	[4]= {
 		[1]=  {2, 4, 3, 5},
@@ -284,8 +278,7 @@ PallyPower.Templates={
 		[7]=  {1, 4, 3, 5},
 		[8]=  {1, 4, 3, 5},
 		[9]=  {1, 2, 4, 3},
-		[10]= {2, 4, 3},
-		[11]= {2, 1, 4, 3},
+		[10]= {2, 1, 4, 3},
 	},
 	[5]= {
 		[1]=  {2, 4, 3, 5, 6},
@@ -297,8 +290,7 @@ PallyPower.Templates={
 		[7]=  {1, 4, 3, 5, 6},
 		[8]=  {1, 4, 3, 5, 6},
 		[9]=  {1, 2, 4, 3, 5},
-		[10]=  {2, 4, 3},
-		[11]=  {2, 1, 4, 3, 5},
+		[10]=  {2, 1, 4, 3, 5},
 	},
 	[6]= {
 		[1]=  {2, 4, 3, 5, 6},
@@ -310,8 +302,7 @@ PallyPower.Templates={
 		[7]=  {1, 4, 3, 5, 6},
 		[8]=  {1, 4, 3, 5, 6},
 		[9]=  {1, 2, 4, 3, 5, 6},
-		[10]=  {2, 4, 3},
-		[11]=  {2, 1, 4, 3, 5, 6},
+		[10]=  {2, 1, 4, 3, 5, 6},
 	},
 }
 -- Layouts
@@ -437,19 +428,6 @@ PallyPower.Layouts = {
 								},
 							[10] = {
 									x = 0, y = -9,
-									p = { 
-											[1] = {x = 1, y = 0},
-											[2] = {x = 1, y = -1},
-											[3] = {x = 1, y = -2},
-											[4] = {x = 1, y = -3},
-											[5] = {x = 1, y = -4},
-											[6] = {x = 1, y = -5},
-											[7] = {x = 1, y = -6},
-											[8] = {x = 1, y = -7},
-										},
-								},
-							[11] = {
-									x = 0, y = -10,
 									p = { 
 											[1] = {x = 1, y = 0},
 											[2] = {x = 1, y = -1},
@@ -599,19 +577,6 @@ PallyPower.Layouts = {
 											[8] = {x = -1, y = -7},
 										},
 								},
-							[11] = {
-									x = 0, y = -10,
-									p = { 
-											[1] = {x = -1, y = 0},
-											[2] = {x = -1, y = -1},
-											[3] = {x = -1, y = -2},
-											[4] = {x = -1, y = -3},
-											[5] = {x = -1, y = -4},
-											[6] = {x = -1, y = -5},
-											[7] = {x = -1, y = -6},
-											[8] = {x = -1, y = -7},
-										},
-								},
 		 		},
 				ab = {x = 0, y = 1},
     			rf = {x = 0, y = 2},
@@ -738,19 +703,6 @@ PallyPower.Layouts = {
 								},
 							[10] = {
 									x = 9, y = 0,
-									p = { 
-											[1] = {x = 0, y = -1},
-											[2] = {x = 0, y = -2},
-											[3] = {x = 0, y = -3},
-											[4] = {x = 0, y = -4},
-											[5] = {x = 0, y = -5},
-											[6] = {x = 0, y = -6},
-											[7] = {x = 0, y = -7},
-											[8] = {x = 0, y = -8},
-										},
-								},
-							[11] = {
-									x = 10, y = 0,
 									p = { 
 											[1] = {x = 0, y = -1},
 											[2] = {x = 0, y = -2},
@@ -899,19 +851,6 @@ PallyPower.Layouts = {
 											[8] = {x = 0, y = 8},
 										},
 								},
-							[11] = {
-									x = 10, y = 0,
-									p = { 
-											[1] = {x = 0, y = 1},
-											[2] = {x = 0, y = 2},
-											[3] = {x = 0, y = 3},
-											[4] = {x = 0, y = 4},
-											[5] = {x = 0, y = 5},
-											[6] = {x = 0, y = 6},
-											[7] = {x = 0, y = 7},
-											[8] = {x = 0, y = 8},
-										},
-								},
 		 		},
 				ab = {x = -1, y = 0},
     			rf = {x = -2, y = 0},
@@ -1038,19 +977,6 @@ PallyPower.Layouts = {
 								},
 							[10] = {
 									x = -9, y = 0,
-									p = { 
-											[1] = {x = 0, y = 1},
-											[2] = {x = 0, y = 2},
-											[3] = {x = 0, y = 3},
-											[4] = {x = 0, y = 4},
-											[5] = {x = 0, y = 5},
-											[6] = {x = 0, y = 6},
-											[7] = {x = 0, y = 7},
-											[8] = {x = 0, y = 8},
-										},
-								},
-							[11] = {
-									x = -10, y = 0,
 									p = { 
 											[1] = {x = 0, y = 1},
 											[2] = {x = 0, y = 2},
