@@ -1,4 +1,4 @@
-# PallyPower-Improved-3.3.5
+# PallyPower-Improved-3.3.5 for Onyxia TBC
 
 ![PallyPower Example](https://github.com/NoM0Re/PallyPower-Improved-3.3.5/blob/main/PallyPower_Flash.gif)<br/><br/>
 
