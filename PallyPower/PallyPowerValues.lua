@@ -7,7 +7,7 @@ PALLYPOWER_MAXCLASSES = 11;
 PALLYPOWER_MAXPERCLASS = 8;
 PALLYPOWER_NORMALBLESSINGDURATION = 10*60;
 PALLYPOWER_GREATERBLESSINGDURATION = 30*60;
-PALLYPOWER_MAXAURAS = 7;
+PALLYPOWER_MAXAURAS = 8;
 
 PallyPower.CONFIG_DRAGHANDLE = L["DRAGHANDLE"];
 
@@ -94,7 +94,8 @@ PallyPower.ClassID = {
 	[8] = "WARLOCK",
 	[9] = "SHAMAN",
 	[10] = "DEATHKNIGHT",
-	[11] = "PET"};
+	[11] = "PET",
+};
 	
 PallyPower.ClassToID = {
 	["WARRIOR"] 	= 1,
@@ -107,7 +108,8 @@ PallyPower.ClassToID = {
 	["WARLOCK"]		= 8,
 	["SHAMAN"]		= 9,
 	["DEATHKNIGHT"]	= 10,
-	["PET"]			= 11};	
+	["PET"]			= 11,
+};	
 
 PallyPower.ClassIcons = {
 	[1] = "Interface\\AddOns\\PallyPower\\Icons\\Warrior",
@@ -120,21 +122,28 @@ PallyPower.ClassIcons = {
 	[8] = "Interface\\AddOns\\PallyPower\\Icons\\Warlock",
 	[9] = "Interface\\AddOns\\PallyPower\\Icons\\Shaman",
 	[10] = "Interface\\AddOns\\PallyPower\\Icons\\DeathKnight",
-	[11] = "Interface\\AddOns\\PallyPower\\Icons\\Pet"};
+	[11] = "Interface\\AddOns\\PallyPower\\Icons\\Pet",
+};
 
 PallyPower.BlessingIcons = {
     [-1] = "",
-	[1] = "Interface\\Icons\\Spell_Holy_GreaterBlessingofWisdom",
-	[2] = "Interface\\Icons\\Spell_Holy_GreaterBlessingofKings",
-	[3] = "Interface\\Icons\\Spell_Magic_GreaterBlessingofKings",
-	[4] = "Interface\\Icons\\Spell_Holy_GreaterBlessingofSanctuary"};
+	[1] = "Interface\\Icons\\Spell_Holy_GreaterBlessingofWisdom", -- Greater Wisdom
+	[2] = "Interface\\Icons\\Spell_Holy_GreaterBlessingofKings", -- Greater Might
+	[3] = "Interface\\Icons\\Spell_Magic_GreaterBlessingofKings", -- Greater Kings
+	[4] = "Interface\\Icons\\Spell_Holy_GreaterBlessingofSalvation", -- Greater Salvation
+	[5] = "Interface\\Icons\\Spell_Holy_GreaterBlessingofSanctuary", -- Greater Sanctuary
+	[6] = "Interface\\Icons\\Spell_Holy_GreaterBlessingofLight", -- Greater Light
+};
 	
 PallyPower.NormalBlessingIcons = {
     [-1] = "",
-	[1] = "Interface\\Icons\\Spell_Holy_SealOfWisdom",
-	[2] = "Interface\\Icons\\Spell_Holy_FistOfJustice",
-	[3] = "Interface\\Icons\\Spell_Magic_MageArmor",
-	[4] = "Interface\\Icons\\Spell_Nature_LightningShield"};
+	[1] = "Interface\\Icons\\Spell_Holy_SealOfWisdom", -- Wisdom
+	[2] = "Interface\\Icons\\Spell_Holy_FistOfJustice", -- Might
+	[3] = "Interface\\Icons\\Spell_Magic_MageArmor", -- Kings
+	[4] = "Interface\\Icons\\Spell_Holy_SealOfSalvation", -- Salvation
+	[5] = "Interface\\Icons\\Spell_Nature_LightningShield", -- Sanctuary
+	[6] = "Interface\\Icons\\Spell_Holy_PrayerOfHealing02", -- Light
+};
 
 PallyPower.AuraIcons = {
     [-1] = "",
@@ -144,7 +153,8 @@ PallyPower.AuraIcons = {
 	[4] = "Interface\\Icons\\Spell_Shadow_SealOfKings",
 	[5] = "Interface\\Icons\\Spell_Frost_WizardMark",
 	[6] = "Interface\\Icons\\Spell_Fire_SealOfFire",
-	[7] = "Interface\\Icons\\Spell_Holy_CrusaderAura",
+	[7] = "Interface\\Icons\\Spell_Holy_MindVision",
+	[8] = "Interface\\Icons\\Spell_Holy_CrusaderAura",
 };
 
 --
@@ -165,7 +175,9 @@ PallyPower.Spells = {
 	[1] = GetSpellInfo(19742), --BS["Blessing of Wisdom"],
 	[2] = GetSpellInfo(19740), --BS["Blessing of Might"],
 	[3] = GetSpellInfo(20217), --BS["Blessing of Kings"],
-	[4] = GetSpellInfo(20911), --BS["Blessing of Sanctuary"],
+	[4] = GetSpellInfo(1038), --BS["Blessing of Salvation"],
+	[5] = GetSpellInfo(20911), --BS["Blessing of Sanctuary"],
+	[6] = GetSpellInfo(19977), --BS["Blessing of Light"],
 };
 
 PallyPower.GSpells = {
@@ -173,7 +185,9 @@ PallyPower.GSpells = {
 	[1] = GetSpellInfo(25894), --BS["Greater Blessing of Wisdom"],
 	[2] = GetSpellInfo(25782), --BS["Greater Blessing of Might"],
 	[3] = GetSpellInfo(25898), --BS["Greater Blessing of Kings"],
-	[4] = GetSpellInfo(25899), --BS["Greater Blessing of Sanctuary"],
+	[4] = GetSpellInfo(25895), --BS["Greater Blessing of Salvation"],
+	[5] = GetSpellInfo(25899), --BS["Greater Blessing of Sanctuary"],
+	[6] = GetSpellInfo(25890), --BS["Greater Blessing of Light"],
 };
 
 PallyPower.RFSpell = GetSpellInfo(25780) --BS["Righteous Fury"]
@@ -199,7 +213,7 @@ PallyPower.Seals = {
     [1] = GetSpellInfo(20164), -- seal of justice
 	[2] = GetSpellInfo(20165), -- seal of light
     [3] = GetSpellInfo(20166), -- seal of wisdom
-    [4] = GetSpellInfo(21084), -- seal of right
+    [4] = GetSpellInfo(21084), -- seal of righteousness
     [5] = GetSpellInfo(53720), -- seal of martyr
     [6] = GetSpellInfo(31801), -- seal of vengeance
     [7] = GetSpellInfo(20375), -- seal of command
@@ -216,61 +230,88 @@ PallyPower.Auras = {
 	[4] = GetSpellInfo(19876), --BS["Shadow Resistance Aura"],
 	[5] = GetSpellInfo(19888), --BS["Frost Resistance Aura"],
 	[6] = GetSpellInfo(19891), --BS["Fire Resistance Aura"],
-	[7] = GetSpellInfo(32223), --BS["Crusader Aura"],
+	[7] = GetSpellInfo(20218), --BS["Sanctity Aura"],
+	[8] = GetSpellInfo(32223), --BS["Crusader Aura"],
 };
 -- Buff templates
 PallyPower.Templates={
 	[1] = {
-		[1]=  {3},
-		[2]=  {3},
+		[1]=  {4},
+		[2]=  {4},
 		[3]=  {3},
 		[4]=  {3},
 		[5]=  {3},
-		[6]=  {3},
-		[7]=  {3},
-		[8]=  {3},
-		[9]=  {3},
+		[6]=  {4},
+		[7]=  {4},
+		[8]=  {4},
+		[9]=  {4},
 		[10]= {3},
 		[11]= {3},
 	},
 	[2] = {
-		[1]=  {2, 3},
-		[2]=  {2, 3},
+		[1]=  {4, 3},
+		[2]=  {4, 3},
 		[3]=  {1, 3},
 		[4]=  {1, 3},
 		[5]=  {1, 3},
-		[6]=  {2, 3},
-		[7]=  {1, 3},
-		[8]=  {1, 3},
+		[6]=  {4, 3},
+		[7]=  {4, 3},
+		[8]=  {4, 3},
 		[9]=  {1, 3},
 		[10]= {2, 3},
 		[11]= {2, 3},
 	},
 	[3]= {
-		[1]=  {2, 4, 3},
-		[2]=  {2, 4, 3},
+		[1]=  {4, 2, 3},
+		[2]=  {4, 2, 3},
 		[3]=  {1, 4, 3},
-		[4]=  {1, 2, 3},
+		[4]=  {2, 4, 3},
 		[5]=  {1, 2, 3},
-		[6]=  {2, 1, 3},
+		[6]=  {2, 4, 3},
 		[7]=  {1, 4, 3},
 		[8]=  {1, 4, 3},
-		[9]=  {1, 2, 3},
+		[9]=  {2, 4, 3},
 		[10]= {2, 4, 3},
 		[11]= {2, 1, 3},
 	},
 	[4]= {
-		[1]=  {2, 4, 3},
-		[2]=  {2, 4, 3},
-		[3]=  {1, 4, 3},
+		[1]=  {2, 4, 3, 5},
+		[2]=  {2, 4, 3, 5},
+		[3]=  {1, 4, 3, 5},
 		[4]=  {1, 2, 4, 3},
 		[5]=  {1, 2, 4, 3},
 		[6]=  {2, 1, 4, 3},
-		[7]=  {1, 4, 3},
-		[8]=  {1, 4, 3},
+		[7]=  {1, 4, 3, 5},
+		[8]=  {1, 4, 3, 5},
 		[9]=  {1, 2, 4, 3},
 		[10]= {2, 4, 3},
 		[11]= {2, 1, 4, 3},
+	},
+	[5]= {
+		[1]=  {2, 4, 3, 5, 6},
+		[2]=  {2, 4, 3, 5, 6},
+		[3]=  {1, 4, 3, 5, 6},
+		[4]=  {1, 2, 4, 3, 5},
+		[5]=  {1, 2, 4, 3, 5},
+		[6]=  {2, 1, 4, 3, 5},
+		[7]=  {1, 4, 3, 5, 6},
+		[8]=  {1, 4, 3, 5, 6},
+		[9]=  {1, 2, 4, 3, 5},
+		[10]=  {2, 4, 3},
+		[11]=  {2, 1, 4, 3, 5},
+	},
+	[6]= {
+		[1]=  {2, 4, 3, 5, 6},
+		[2]=  {2, 4, 3, 5, 6},
+		[3]=  {1, 4, 3, 5, 6},
+		[4]=  {1, 2, 4, 3, 5, 6},
+		[5]=  {1, 2, 4, 3, 5, 6},
+		[6]=  {2, 1, 4, 3, 5, 6},
+		[7]=  {1, 4, 3, 5, 6},
+		[8]=  {1, 4, 3, 5, 6},
+		[9]=  {1, 2, 4, 3, 5, 6},
+		[10]=  {2, 4, 3},
+		[11]=  {2, 1, 4, 3, 5, 6},
 	},
 }
 -- Layouts

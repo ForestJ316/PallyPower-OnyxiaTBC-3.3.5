@@ -570,14 +570,14 @@ function PallyPower:PerformCycle(name, class, skipzero)
 
 	PallyPower_Assignments[name][class] = 0
 
-	for test = cur+1, 5 do
+	for test = cur+1, 7 do
 		if PallyPower:CanBuff(name, test) and (PallyPower:NeedsBuff(class, test) or shift) then
 			cur = test
 			do break end
 		end
 	end
 
-	if cur == 5 then
+	if cur == 7 then
 		if skipzero then
 			cur = 1
 		else
@@ -606,10 +606,10 @@ function PallyPower:PerformCycleBackwards(name, class, skipzero)
 	end
 
 	if not PallyPower_Assignments[name][class] then
-		cur=5
+		cur=7
 	else
 		cur=PallyPower_Assignments[name][class]
-		if cur == 0 or skipzero and cur == 1 then cur = 5 end
+		if cur == 0 or skipzero and cur == 1 then cur = 7 end
 	end
 
 	PallyPower_Assignments[name][class] = 0
@@ -709,7 +709,7 @@ function PallyPower:AssignPlayerAsClass(pname, pclass, tclass)
 end
 
 function PallyPower:CanBuff(name, test)
-	if test==5 then
+	if test==7 then
 		return true
 	end
 
@@ -720,7 +720,7 @@ function PallyPower:CanBuff(name, test)
 end
 
 function PallyPower:NeedsBuff(class, test, playerName)
-	if test==5 or test==0 then
+	if test==7 or test==0 then
 		return true
 	end
 
@@ -766,7 +766,7 @@ function PallyPower:ScanSpells()
 	local _, class=UnitClass("player")
 	if (class == "PALADIN") then
 		local RankInfo = {}
-		for i = 1, 4 do -- find max spell ranks
+		for i = 1, 6 do -- find max spell ranks
 			local spellName, spellRank = GetSpellInfo(PallyPower.GSpells[i])
 			if not spellName then -- fallback to lower blessings
 				spellName, spellRank = GetSpellInfo(PallyPower.Spells[i])
@@ -783,7 +783,7 @@ function PallyPower:ScanSpells()
 				if i == 1 then  -- wisdom
 					talent = talent + select(5, GetTalentInfo(1, 10))
 				elseif i == 2 then -- might
-			    	talent = talent + select(5, GetTalentInfo(3, 5))
+			    	talent = talent + select(5, GetTalentInfo(3, 1))
 			    --elseif i == 3 then -- kings
 			    --	talent = talent + select(5, GetTalentInfo(2, 2))
 				end
@@ -2867,7 +2867,7 @@ function PallyPower:AutoAssignBlessings()
 	
 	if pc == 0 then return end
 	
-	if pc > 4 then pc = 4 end
+	if pc > 6 then pc = 6 end
 	
 	for name in pairs(AllPallys) do	
 		pallycount = pallycount + 1
@@ -3034,7 +3034,7 @@ function PallyPower:PerformAuraCycle(name, skipzero)
 	end
 
 	local cur = PallyPower_AuraAssignments[name]
-
+	
 	for test = cur+1, PALLYPOWER_MAXAURAS do
 		if PallyPower:HasAura(name, test) then
 			cur = test
