@@ -426,7 +426,7 @@ function PallyPowerConfigGrid_Update()
 			getglobal(fname .. "Symbols"):SetTextColor(1,1,0.5)
 			
 			-- display the rank/talents for the blessings...
-			for id = 1, 4 do
+			for id = 1, 6 do
 				if SkillInfo[id] then
 					getglobal(fname.."Icon"..id):Show()
 					getglobal(fname.."Skill"..id):Show()
@@ -440,10 +440,10 @@ function PallyPowerConfigGrid_Update()
 					getglobal(fname.."Skill"..id):Hide()
 				end
 			end
-			for id = 5, 6 do
+			--[[for id = 5, 6 do
 				getglobal(fname.."Icon"..id):Hide()
 				getglobal(fname.."Skill"..id):Hide()
-			end
+			end]]
 			
 			-- display the rank/talents for only the 3 primary auras (devotion, retribution, concentration)
 			if not AllPallys[name].AuraInfo then
@@ -519,7 +519,7 @@ function PallyPower:Report(type)
 			local list = {}
 			for name in pairs(AllPallys) do
 				local blessings
-				for i = 1, 4 do
+				for i = 1, 6 do
 					list[i] = 0
 				end
 				for id = 1, PALLYPOWER_MAXCLASSES do
@@ -528,7 +528,7 @@ function PallyPower:Report(type)
 						list[bid] = list[bid] + 1
 					end
 				end
-				for id = 1, 4 do
+				for id = 1, 6 do
 					if (list[id] > 0) then
 						if (blessings) then
 							blessings = blessings .. ", "
@@ -768,6 +768,11 @@ function PallyPower:ScanSpells()
 		local RankInfo = {}
 		for i = 1, 6 do -- find max spell ranks
 			local spellName, spellRank = GetSpellInfo(PallyPower.GSpells[i])
+			-- TBC case for kings for Onyxia TBC. Spell showing as known even if talent not selected.
+			if i == 3 then
+				local kingsTalent = select(5, GetTalentInfo(2, 6))
+				if kingsTalent == 0 then spellName = nil end
+			end
 			if not spellName then -- fallback to lower blessings
 				spellName, spellRank = GetSpellInfo(PallyPower.Spells[i])
 			end
@@ -811,11 +816,11 @@ function PallyPower:ScanSpells()
 					-- Lach22Mar08: Prot talent tree appears to be out-of-sync... 
 					-- Imp Dev. Aura should be 10, but wont return correct value unless 11 is used for the index...
 					-- I assume that they will correct if before release... 
-					talent = talent + select(5, GetTalentInfo(2, 11)) -- Improved Devotion Aura
+					talent = talent + select(5, GetTalentInfo(2, 1)) -- Improved Devotion Aura
 				elseif i == 2 then
-			    	talent = talent + select(5, GetTalentInfo(3, 14))  -- Sanctified Retribution
+			    	talent = talent + select(5, GetTalentInfo(3, 11))  -- Improved Retribution Aura
 			    elseif i == 3 then
-			    	talent = talent + select(5, GetTalentInfo(1, 9))  -- Improved Concentration Aura
+			    	talent = talent + select(5, GetTalentInfo(2, 12))  -- Improved Concentration Aura
 				end
 
 				AllPallys[self.player].AuraInfo[i].talent = talent
@@ -856,7 +861,7 @@ function PallyPower:SendSelf()
 
 	local SkillInfo = AllPallys[self.player]
 	s = ""
-	for i = 1, 4 do
+	for i = 1, 6 do
 		if not SkillInfo[i] then
 			s = s.."nn"
 		else

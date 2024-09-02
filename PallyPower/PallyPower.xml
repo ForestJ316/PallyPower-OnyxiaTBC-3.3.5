@@ -989,7 +989,7 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 				    </Anchor>
 			    </Anchors>
 		    </Texture>
-		    <Texture file="Interface\Icons\Spell_Nature_LightningShield" name="$parentIcon4">
+		    <Texture file="Interface\Icons\Spell_Holy_SealOfSalvation" name="$parentIcon4">
 			    <Size>
 				    <AbsDimension x="16" y="16" /> 
 			    </Size>
@@ -1001,7 +1001,7 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 				    </Anchor>
 			    </Anchors>
 		    </Texture>
-        <Texture file="Interface\Icons\Spell_Magic_MageArmor" name="$parentIcon5">
+        <Texture file="Interface\Icons\Spell_Nature_LightningShield" name="$parentIcon5">
           <Size>
             <AbsDimension x="16" y="16" />
           </Size>
@@ -1013,7 +1013,7 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
             </Anchor>
           </Anchors>
         </Texture>
-        <Texture file="Interface\Icons\Spell_Nature_LightningShield" name="$parentIcon6">
+        <Texture file="Interface\Icons\Spell_Holy_PrayerOfHealing02" name="$parentIcon6">
           <Size>
             <AbsDimension x="16" y="16" />
           </Size>
