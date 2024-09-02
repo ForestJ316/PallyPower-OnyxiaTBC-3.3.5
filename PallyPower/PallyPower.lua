@@ -2823,12 +2823,12 @@ function PallyPower:SealAssign(seal)
 end
 
 -- Auto-Assign blessings by Maddeathelf
-local WisdomPallys, MightPallys, KingsPallys,  SancPallys = {}, {}, {}, {}
+local WisdomPallys, MightPallys, KingsPallys, SalvPallys, SancPallys, LightPallys = {}, {}, {}, {}, {}, {}
 
 function PallyPower:AutoAssign()
 
 	PallyPowerConfig_Clear()
-	WisdomPallys, MightPallys, KingsPallys,  SancPallys = {}, {}, {}, {}	
+	WisdomPallys, MightPallys, KingsPallys, SalvPallys, SancPallys, LightPallys = {}, {}, {}, {}, {}, {}
 	PallyPower:AutoAssignBlessings()
 	
 	local precedence = { 1, 3, 2, 4, 5, 6 }	 -- devotion, concentration, retribution, shadow, frost, fire
@@ -2837,7 +2837,7 @@ function PallyPower:AutoAssign()
 end
 
 function PallyPower:CalcSkillRanks1(name)
-	local wisdom, might, kings, sanct
+	local wisdom, might, kings, salv, sanct, light
 	if AllPallys[name][1] then
 		wisdom = tonumber(AllPallys[name][1].rank) + tonumber(AllPallys[name][1].talent)/12
 	else
@@ -2854,12 +2854,22 @@ function PallyPower:CalcSkillRanks1(name)
 		kings = 0
 	end
 	if AllPallys[name][4] then
-		sanct  = tonumber(AllPallys[name][4].rank)
+		salv  = tonumber(AllPallys[name][4].rank)
+	else
+		salv = 0
+	end
+	if AllPallys[name][5] then
+		sanct = tonumber(AllPallys[name][5].rank)
 	else
 		sanct = 0
 	end
+	if AllPallys[name][6] then
+		light = tonumber(AllPallys[name][6].rank)
+	else
+		light = 0
+	end
 	
-	return wisdom, might, kings, sanct
+	return wisdom, might, kings, salv, sanct, light
 end
 
 function PallyPower:AutoAssignBlessings()
@@ -2876,7 +2886,7 @@ function PallyPower:AutoAssignBlessings()
 	
 	for name in pairs(AllPallys) do	
 		pallycount = pallycount + 1
-		local wisdom, might, kings, sanct = PallyPower:CalcSkillRanks1(name) 
+		local wisdom, might, kings, salv, sanct, light = PallyPower:CalcSkillRanks1(name) 
 		--self:Print("Adding")
 		--self:Print(name, wisdom, might, kings, sanct)
 		if wisdom then
@@ -2891,8 +2901,16 @@ function PallyPower:AutoAssignBlessings()
 			tinsert(KingsPallys, {pallyname = name, skill = kings})
 		end
 		
+		if salv then
+			tinsert(SalvPallys, {pallyname = name, skill = salv})
+		end
+
 		if sanct then
 			tinsert(SancPallys, {pallyname = name, skill = sanct})
+		end
+
+		if light then
+			tinsert(LightPallys, {pallyname = name, skill = light})
 		end
 	end
 	-- get template for the number of available paladins in the raid
@@ -2945,7 +2963,9 @@ function PallyPower:BuffSelections(buff, class, pallys)
 	if buff == 1 then t = WisdomPallys end
 	if buff == 2 then t = MightPallys end
 	if buff == 3 then t = KingsPallys end
-	if buff == 4 then t = SancPallys end
+	if buff == 4 then t = SalvPallys end
+	if buff == 5 then t = SancPallys end
+	if buff == 6 then t = LightPallys end
 
 	local Buffer = ""
 	local testrank = 0
