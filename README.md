@@ -42,6 +42,6 @@ This add-on provides an interactive and easy to use interface that allows you to
 A designated player for each class will be determined before combat, if the player/s are in range and alive they will receive the buff/s while combat now, otherwise you'll still need to use the Player Buttons.<br/>
 
 # **Installation:**
-1. [Download here](https://github.com/NoM0Re/PallyPower-Improved-3.3.5/archive/refs/heads/main.zip)<br/><br/>
-2. Unzip and take folder **PallyPower** (not the PallyPower-Improved-3.3.5-main)<br/><br/>
+1. [Download here](https://github.com/ForestJ316/PallyPower-OnyxiaTBC-3.3.5/archive/refs/heads/main.zip)<br/><br/>
+2. Unzip and take folder **PallyPower** (not the PallyPower-OnyxiaTBC-3.3.5-main)<br/><br/>
 3. Put it in your WoW/Interface/Addons folder<br/><br/><br/>
