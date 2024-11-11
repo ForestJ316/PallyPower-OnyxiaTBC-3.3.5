@@ -1,4 +1,8 @@
 # PallyPower-Improved-3.3.5 for Onyxia TBC
+Forked from [**PallyPower-Improved-3.3.5**](https://github.com/NoM0Re/PallyPower-Improved-3.3.5) and updated to support TBC blessings and auras.
+<br/>
+
+------------------------------------------------
 
 ![PallyPower Example](https://github.com/NoM0Re/PallyPower-Improved-3.3.5/blob/main/PallyPower_Flash.gif)<br/><br/>
 
@@ -22,7 +26,6 @@
 This add-on provides an interactive and easy to use interface that allows you to set your own blessings (Righteous Fury, Aura, Seal and Blessings) and automatically checks for missing buffs with an easy to read indicator. While in a Party or RAID Pally Power can be used to assign blessings to other Paladins. Fellow Paladins will also have to run Pally Power for this to occur and the Paladin doing the assignments will have to be the Party Leader, Raid Leader or Raid Assistant. Fellow Paladins can select the "Free Assignment" setting to allow other non-leaders to change your Blessing assignment. In combat, none of the assignments can be changed due to the in-combat lock-out.<br/>
 <br/>
 **All credits go to the original creator of the addon, and this version is not affiliated with the original addon in any way.**
-<br/>
 <br/>
 
 ------------------------------------------------
