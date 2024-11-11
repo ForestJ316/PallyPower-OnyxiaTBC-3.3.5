@@ -639,9 +639,9 @@ function PallyPower:PerformPlayerCycle(arg1, pname, class)
 		blessing = PallyPower_NormalAssignments[playername][class][pname]
 	end
 
-	local test = (blessing - arg1) % 5
+	local test = (blessing - arg1) % 7
 	while not (PallyPower:CanBuff(playername, test) and PallyPower:NeedsBuff(class, test, pname)) and test > 0 do
-		test = (test - arg1) % 5
+		test = (test - arg1) % 7
 		if test == blessing then
 			test = 0
 			break
