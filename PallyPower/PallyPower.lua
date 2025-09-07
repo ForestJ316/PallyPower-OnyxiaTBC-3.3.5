@@ -194,9 +194,9 @@ function GetNormalBlessings(pname, class, tname)
 	if PallyPower_NormalAssignments[pname] and PallyPower_NormalAssignments[pname][class] then
 		local blessing = PallyPower_NormalAssignments[pname][class][tname]
 		if blessing then
-			return tostring(blessing)
+			return PallyPower.Spells[blessing]
 		else
-			return "0"
+			return "(none)"
 		end
 	end
 end
@@ -211,6 +211,15 @@ function SetNormalBlessings(pname, class, tname, value)
 	PallyPower:SendMessage("NASSIGN "..pname.." "..class.." "..tname.." "..value)  
 	if value == 0 then value = nil end
 	PallyPower_NormalAssignments[pname][class][tname] = value
+end
+
+local function GetNormalBlessingIndexFromName(blessing)
+	for k, v in ipairs(PallyPower.Spells) do
+		if v == blessing then
+			return k
+		end
+	end
+	return 0
 end
 
 function PallyPowerGrid_NormalBlessingMenu(btn, mouseBtn, pname, class)
@@ -239,11 +248,11 @@ function PallyPowerGrid_NormalBlessingMenu(btn, mouseBtn, pname, class)
 				pre = ""
 				suf = ""
 			end
-			local blessings = {["0"] = sformat("%s%s%s", pre, "(none)", suf)}
+			local blessings = {[1] = sformat("%s%s%s", pre, "(none)", suf)}
 			for index, blessing in ipairs(PallyPower.Spells) do
 				if PallyPower:CanBuff(pally, index) then
 					--if PallyPower:NeedsBuff(class, index, pname) then
-						blessings[tostring(index)] = sformat("%s%s%s", pre, blessing, suf)
+						blessings[index+1] = sformat("%s%s%s", pre, blessing, suf)
 					--end
 				end
 			end
@@ -253,9 +262,12 @@ function PallyPowerGrid_NormalBlessingMenu(btn, mouseBtn, pname, class)
 				desc = pally,
 				order = 5,
 				get = function() return GetNormalBlessings(pally, class, pname) end,
-				set = function(value) if control then SetNormalBlessings(pally, class, pname, value + 0) end end,
+				set = function(value)
+					if control then
+						value = GetNormalBlessingIndexFromName(value)
+						SetNormalBlessings(pally, class, pname, value + 0)
+					end end,
 				validate = blessings,
-
 			}
 		end
 		dewdrop:Register(btn, "children", 

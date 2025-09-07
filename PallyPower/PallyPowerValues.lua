@@ -128,8 +128,8 @@ PallyPower.BlessingIcons = {
 	[2] = "Interface\\Icons\\Spell_Holy_GreaterBlessingofKings", -- Greater Might
 	[3] = "Interface\\Icons\\Spell_Magic_GreaterBlessingofKings", -- Greater Kings
 	[4] = "Interface\\Icons\\Spell_Holy_GreaterBlessingofSalvation", -- Greater Salvation
-	[5] = "Interface\\Icons\\Spell_Holy_GreaterBlessingofSanctuary", -- Greater Sanctuary
-	[6] = "Interface\\Icons\\Spell_Holy_GreaterBlessingofLight", -- Greater Light
+	[5] = "Interface\\Icons\\Spell_Holy_GreaterBlessingofLight", -- Greater Light
+	[6] = "Interface\\Icons\\Spell_Holy_GreaterBlessingofSanctuary", -- Greater Sanctuary
 };
 	
 PallyPower.NormalBlessingIcons = {
@@ -138,8 +138,8 @@ PallyPower.NormalBlessingIcons = {
 	[2] = "Interface\\Icons\\Spell_Holy_FistOfJustice", -- Might
 	[3] = "Interface\\Icons\\Spell_Magic_MageArmor", -- Kings
 	[4] = "Interface\\Icons\\Spell_Holy_SealOfSalvation", -- Salvation
-	[5] = "Interface\\Icons\\Spell_Nature_LightningShield", -- Sanctuary
-	[6] = "Interface\\Icons\\Spell_Holy_PrayerOfHealing02", -- Light
+	[5] = "Interface\\Icons\\Spell_Holy_PrayerOfHealing02", -- Light
+	[6] = "Interface\\Icons\\Spell_Nature_LightningShield", -- Sanctuary
 };
 
 PallyPower.AuraIcons = {
@@ -173,8 +173,9 @@ PallyPower.Spells = {
 	[2] = GetSpellInfo(19740), --BS["Blessing of Might"],
 	[3] = GetSpellInfo(20217), --BS["Blessing of Kings"],
 	[4] = GetSpellInfo(1038), --BS["Blessing of Salvation"],
-	[5] = GetSpellInfo(20911), --BS["Blessing of Sanctuary"],
-	[6] = GetSpellInfo(19977), --BS["Blessing of Light"],
+	[5] = GetSpellInfo(19977), --BS["Blessing of Light"],
+	[6] = GetSpellInfo(20911), --BS["Blessing of Sanctuary"],
+	
 };
 
 PallyPower.GSpells = {
@@ -183,8 +184,8 @@ PallyPower.GSpells = {
 	[2] = GetSpellInfo(25782), --BS["Greater Blessing of Might"],
 	[3] = GetSpellInfo(25898), --BS["Greater Blessing of Kings"],
 	[4] = GetSpellInfo(25895), --BS["Greater Blessing of Salvation"],
-	[5] = GetSpellInfo(25899), --BS["Greater Blessing of Sanctuary"],
-	[6] = GetSpellInfo(25890), --BS["Greater Blessing of Light"],
+	[5] = GetSpellInfo(25890), --BS["Greater Blessing of Light"],
+	[6] = GetSpellInfo(25899), --BS["Greater Blessing of Sanctuary"],
 };
 
 PallyPower.RFSpell = GetSpellInfo(25780) --BS["Righteous Fury"]

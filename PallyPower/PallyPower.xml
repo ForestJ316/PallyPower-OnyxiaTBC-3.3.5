@@ -1001,26 +1001,26 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
 				    </Anchor>
 			    </Anchors>
 		    </Texture>
-        <Texture file="Interface\Icons\Spell_Nature_LightningShield" name="$parentIcon5">
+		<Texture file="Interface\Icons\Spell_Holy_PrayerOfHealing02" name="$parentIcon5">
           <Size>
             <AbsDimension x="16" y="16" />
           </Size>
           <Anchors>
             <Anchor point="TOPLEFT" relativeTo="$parentIcon4">
               <Offset>
-                <AbsDimension x="45" y="-0" />
+                <AbsDimension x="45" y="0" />
               </Offset>
             </Anchor>
           </Anchors>
         </Texture>
-        <Texture file="Interface\Icons\Spell_Holy_PrayerOfHealing02" name="$parentIcon6">
+        <Texture file="Interface\Icons\Spell_Nature_LightningShield" name="$parentIcon6">
           <Size>
             <AbsDimension x="16" y="16" />
           </Size>
           <Anchors>
             <Anchor point="TOPLEFT" relativeTo="$parentIcon5">
               <Offset>
-                <AbsDimension x="45" y="0" />
+                <AbsDimension x="45" y="-0" />
               </Offset>
             </Anchor>
           </Anchors>
