@@ -1567,7 +1567,7 @@ function Dewdrop:FeedAceOptionsTable(options, difference)
 						'tooltipText', tooltipText
 					)
 				elseif v.type == "text" then
-						if type(v.validate) == "table" then
+					if type(v.validate) == "table" then
 						local func,arg1,arg2
 						if v.onClick then
 							func,arg1,arg2 = getMethod(name, handler, v, "onClick",    passValue)
